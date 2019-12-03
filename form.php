@@ -16,3 +16,4 @@ if (isset($_SESSION['myname'])) {
 } else {
     echo "You will need to provide a name above";
 }
+require 'stats.php';
