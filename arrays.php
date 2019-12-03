@@ -1,4 +1,5 @@
 <?php
+require_once 'config/config.php';
 require 'head.php';
 echo "Testing Arrays!";
 $cars = ['Volvo', 'Zhiguli', 'Zaporozhec'];
@@ -17,6 +18,10 @@ $myarr = (array) json_decode($json);
 echo "<hr>";
 var_dump($myarr);
 
+foreach ($myarr as $key => $value) {
+    echo "<p>My key $key has value $value</p>";
+}
+
 echo "<hr>";
 var_dump($supermarkets);
 echo "<hr>";
@@ -24,12 +29,16 @@ echo "<hr>";
 print_r($supermarkets);
 echo "<hr>";
 array_push($cars, "VW", "BMW");
+$cars[23] = "Nissan";
 var_dump($cars);
 echo "<hr>";
 // echo $cars[2];
 echo "<ul>";
 foreach ($cars as $car) {
     echo "<li>This is my auto:" . $car . "</li>";
+}
+foreach ($cars as $carnum => $car) {
+    echo "<li>This is my auto no.$carnum:" . $car . "</li>";
 }
 echo "</ul>";
 echo "<ol>";
