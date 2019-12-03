@@ -1,4 +1,5 @@
 <?php
+require 'head.php';
 echo "Testing Arrays!";
 $cars = ['Volvo', 'Zhiguli', 'Zaporozhec'];
 var_dump($cars);
@@ -21,3 +22,21 @@ var_dump($supermarkets);
 echo "<hr>";
 
 print_r($supermarkets);
+echo "<hr>";
+array_push($cars, "VW", "BMW");
+var_dump($cars);
+echo "<hr>";
+// echo $cars[2];
+echo "<ul>";
+foreach ($cars as $car) {
+    echo "<li>This is my auto:" . $car . "</li>";
+}
+echo "</ul>";
+echo "<ol>";
+
+for ($i = 0; $i < sizeof($cars); $i++) {
+    echo "<li>Car Number $i is $cars[$i]</li>";
+}
+echo "</ol>";
+
+require 'foot.php';
