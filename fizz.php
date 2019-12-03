@@ -2,10 +2,15 @@
 
 require_once 'config.php';
 require_once 'util.php';
+require 'head.php';
 // require_once 'nosuch.php';
 // include_once 'nosuch.php';
 // require 'config.php';
 // include 'afdafdfad.php';
+// echo $_GET['link'];
+// echo $_SERVER['QUERY_STRING'];
+echo $_SERVER['REQUEST_URI'];
+// var_dump($_SERVER);
 
 for ($i = 1; $i < MAX; $i++) {
     if ($i % 3 == 0 && $i % 5 == 0) {
@@ -25,3 +30,4 @@ for ($i = 1; $i < MAX; $i++) {
         // echo '<div>$i</div>';
     }
 }
+require 'foot.php';
