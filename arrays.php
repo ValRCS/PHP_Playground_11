@@ -2,7 +2,7 @@
 require_once 'config/config.php';
 require 'head.php';
 echo "Testing Arrays!";
-$cars = ['Volvo', 'Zhiguli', 'Zaporozhec'];
+$cars = ['Volvo', 'Zhiguli', 'Zaporozhec', 'ķēms', 'Āzis'];
 var_dump($cars);
 
 $supermarkets = [
@@ -42,10 +42,26 @@ foreach ($cars as $carnum => $car) {
 }
 echo "</ul>";
 echo "<ol>";
-
+echo array_key_exists(23, $cars);
+echo isset($cars[23]);
+echo "<br>";
+echo "Lonely car " . array_pop($cars) . "<br>";
+echo array_key_exists(23, $cars);
+if (isset($cars[23])) {
+    echo "we have this" . $cars[23];
+} else {
+    echo "no such car!";
+}
+echo isset($cars[23]);
+echo "<br>";
 for ($i = 0; $i < sizeof($cars); $i++) {
     echo "<li>Car Number $i is $cars[$i]</li>";
 }
 echo "</ol>";
+//sort returns TRUE on successful sort so this is INPLACE sort!
+//FIXME check locale settings why Ā comes after Z ?
+setlocale(LC_ALL, 'lv_LV');
+var_dump(sort($cars));
+var_dump($cars);
 
 require 'foot.php';
