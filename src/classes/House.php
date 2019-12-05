@@ -1,6 +1,8 @@
 <?php
 class House
 {
+    const MYFAVORITE = "Rīga";
+
     //code goes here
     public $color;
     public $price;
