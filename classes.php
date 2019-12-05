@@ -2,8 +2,8 @@
 require_once 'House.php';
 echo "Testing classes<hr>";
 
-$myHouse = new House();
-$friendsHouse = new House();
+$myHouse = new House("green", 10000, 50000);
+$friendsHouse = new House("red", 20000, 90000);
 //we can make as many as we wish
 echo "My house is $myHouse->color <br>";
 echo "My friendsHouse cost $friendsHouse->price <br>";

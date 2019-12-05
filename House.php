@@ -2,15 +2,20 @@
 class House
 {
     //code goes here
-    public $color = "red";
-    public $price = 100000;
+    public $color;
+    public $price;
 
-    private $topPrice = 500000;
+    private $topPrice;
 
     //__construct specifies a constructor method called when we create new class instance
-    public function __construct()
+    public function __construct($color, $price, $topPrice)
     {
         echo "I am constructing a new house<br>";
+        $this->color = $color;
+        $this->price = $price;
+        $this->topPrice = $topPrice;
+
+        $this->printPrice();
     }
 
     public function printHello()
