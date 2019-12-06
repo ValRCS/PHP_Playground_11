@@ -12,18 +12,11 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
     // var_dump($_POST);
 
     //we need to add song to database
-    $title = $_POST['title'];
-    $artist = $_POST['artist']; //FIXME when no artist exists
-    $length = $_POST['length'];
-    $user_id = 1; //TODO add real users
+    $song_id = $_POST['delete'];
 
     // prepare and bind
-    $stmt = $conn->prepare("INSERT INTO tracks (title, artist, length, user_id)
-                            VALUES (:title, :artist, :length, :user_id)");
-    $stmt->bindParam(':title', $title);
-    $stmt->bindParam(':artist', $artist);
-    $stmt->bindParam(':length', $length);
-    $stmt->bindParam(':user_id', $user_id);
+    $stmt = $conn->prepare("DELETE FROM `tracks` WHERE `tracks`.`id` = (:songid)");
+    $stmt->bindParam(':songid', $song_id);
 
     $stmt->execute();
     //we go to our index.php or rather our root

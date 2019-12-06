@@ -28,7 +28,11 @@ foreach ($allRows as $row) {
     // echo "<span>Title: " . $row["title"] . "</span>";
     foreach ($row as $key => $value) {
         echo "<span class='value-cell'>$value </span>";
+
     }
+    echo "<form action='deleteSong.php' method='post'>";
+    echo "<button name='delete' value='" . $row['id'] . "'>Delete</button>";
+    echo "</form>";
     echo "</div>";
 }
 echo "</div>";
