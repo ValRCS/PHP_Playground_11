@@ -11,15 +11,25 @@ $isFetchModeSet = $stmt->setFetchMode(PDO::FETCH_ASSOC);
 //we store the results in memory, might not be best for large results
 $allRows = $stmt->fetchAll();
 
-$columnsPrinted = false;
+//finally we can print the results
+echo "<hr>";
+echo "<div class='song-container'>";
+$columnsPrinted = false; //for column names
 foreach ($allRows as $row) {
     if (!$columnsPrinted) {
+        echo "<div class='row-column-names'>";
         foreach ($row as $key => $value) {
-            echo "<span>KEY: $key </span>";
+            echo "<span class='column-name'> $key </span>";
         }
         $columnsPrinted = true;
+        echo "</div>";
     }
-    echo "<div>";
-    echo "<span>Title: " . $row["title"] . "</span>";
+    echo "<div class='row-song'>";
+    // echo "<span>Title: " . $row["title"] . "</span>";
+    foreach ($row as $key => $value) {
+        echo "<span class='value-cell'>$value </span>";
+    }
     echo "</div>";
 }
+echo "</div>";
+echo "<hr>";
