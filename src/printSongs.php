@@ -25,11 +25,22 @@ foreach ($allRows as $row) {
         echo "</div>";
     }
     echo "<div class='row-song'>";
+    echo "<form action='updateSong.php' method='post'>";
+    echo "<div class='update-songs'>";
     // echo "<span>Title: " . $row["title"] . "</span>";
     foreach ($row as $key => $value) {
-        echo "<span class='value-cell'>$value </span>";
 
+        //TODO we need to process title, artist and length seperately as special cases
+        switch ($key) {
+
+            default:
+                echo "<span class='value-cell'>$value </span>";
+                break;
+        }
     }
+    echo "<button name='delete' value='" . $row['id'] . "'>Update</button>";
+    echo "</div>";
+    echo "</form>";
     echo "<form action='deleteSong.php' method='post'>";
     echo "<button name='delete' value='" . $row['id'] . "'>Delete</button>";
     echo "</form>";
