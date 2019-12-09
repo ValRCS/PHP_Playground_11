@@ -28,3 +28,7 @@ body {
     justify-content: space-around;
 }
 
+.value-length {
+    max-width: 40px;
+}
+

@@ -32,13 +32,17 @@ foreach ($allRows as $row) {
 
         //TODO we need to process title, artist and length seperately as special cases
         switch ($key) {
-
+            case 'title':
+            case 'artist':
+            case 'length':
+                echo "<input class='input-value-cell value-$key' name='$key' value='$value'></input>";
+                break;
             default:
                 echo "<span class='value-cell'>$value </span>";
                 break;
         }
     }
-    echo "<button name='delete' value='" . $row['id'] . "'>Update</button>";
+    echo "<button name='update' value='" . $row['id'] . "'>Update</button>";
     echo "</div>";
     echo "</form>";
     echo "<form action='deleteSong.php' method='post'>";
