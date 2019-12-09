@@ -1,3 +1,2 @@
 <?php
-// do not put phpinfo in production!
-phpinfo();
+echo phpinfo();
