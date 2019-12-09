@@ -1,6 +1,7 @@
 <?php
 require_once '../src/templates/head.php';
 
+require_once '../src/login.php';
 require_once '../src/addSongs.php';
 require_once '../src/printSongs.php';
 
