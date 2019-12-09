@@ -24,14 +24,27 @@ foreach ($allRows as $row) {
         $columnsPrinted = true;
         echo "</div>";
     }
-    echo "<div class='row-song'>";
+
+    if (isset($row['favorite'])) {
+        $special = "song-style-" . $row['favorite'];
+    } else {
+        $special = "song-style-null";
+    }
+
+    echo "<div class='row-song $special'>";
     echo "<form action='updateSong.php' method='post'>";
     echo "<div class='update-songs'>";
     // echo "<span>Title: " . $row["title"] . "</span>";
+
     foreach ($row as $key => $value) {
 
         //TODO we need to process title, artist and length seperately as special cases
         switch ($key) {
+            case 'favorite':
+                //set checked to show if we have a set value
+                $checked = $value ? "checked" : "";
+                echo "<input type='checkbox' class='value-$key' name='$key' value='$key' $checked></input>";
+                break;
             case 'title':
             case 'artist':
             case 'length':
