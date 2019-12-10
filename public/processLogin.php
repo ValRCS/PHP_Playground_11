@@ -7,7 +7,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
     $password = $_POST['password'];
 
     // prepare and bind
-    $stmt = $conn->prepare("SELECT hash FROM users
+    $stmt = $conn->prepare("SELECT id, hash FROM users
             WHERE (username = :username)");
     $stmt->bindParam(':username', $username);
     $stmt->execute();
@@ -24,6 +24,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
         if (password_verify($password, $hash)) {
             echo "<br>Login Worked!";
             $_SESSION['username'] = $username;
+            $_SESSION['id'] = $allRows[0]['id'];
         } else {
             echo "<br>Login Failed";
         }
