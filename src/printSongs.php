@@ -4,6 +4,8 @@ require_once 'db.php';
 if (!isset($_SESSION['username'])) {
     echo "Please Login to see your songs";
     return;
+} else {
+    echo "Hello there " . $_SESSION['username'] . "!<br>";
 }
 //we prepare a statement and execute it
 $stmt = $conn->prepare("SELECT * FROM tracks");
