@@ -24,7 +24,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
         if (password_verify($password, $hash)) {
             echo "<br>Login Worked!";
             $_SESSION['username'] = $username;
-            $_SESSION['id'] = $allRows[0]['id'];
+            $_SESSION['id'] = (int) $allRows[0]['id'];
         } else {
             echo "<br>Login Failed";
         }
