@@ -27,6 +27,10 @@ foreach ($allRows as $row) {
     if (!$columnsPrinted) {
         echo "<div class='row-column-names'>";
         foreach ($row as $key => $value) {
+
+            if ($key == 'Column') {
+                $key = "Kolonna";
+            }
             echo "<span class='column-name'> $key </span>";
         }
         $columnsPrinted = true;

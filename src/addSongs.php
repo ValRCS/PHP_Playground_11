@@ -1,8 +1,7 @@
 <?php
-if (!$_SESSION['username']) {
+if (!isset($_SESSION['username'])) {
     return;
 }
-
 ?>
 <div class="song-form">
 <form action="processAdd.php" method="post">

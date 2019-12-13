@@ -18,6 +18,17 @@ if (isset($_SESSION['username'])) {
     echo "<input name='password' type='password' placeholder='Enter password' required>";
     echo "<button>Login</button>";
     echo "</form>";
+    //alternative would have $_SESSION['myerrors'] if did not want $_GET
+    if (isset($_GET['error'])) {
+        switch ($_GET['error']) {
+            case 'shortpassword':
+                echo "<p>Password too short</p>";
+                break;
+            default:
+                echo "<p>Your registration failed because: " . $_GET['error'] . "</p>";
+                break;
+        }
+    }
     echo "</div>";
 }
 echo "<hr>";
