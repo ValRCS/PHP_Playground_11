@@ -73,6 +73,8 @@ foreach ($allRows as $row) {
     echo "<form action='deleteSong.php' method='post'>";
     echo "<button name='delete' value='" . $row['id'] . "'>Delete</button>";
     echo "</form>";
+    $rowid = $row['id'];
+    echo "<button name='jsdelete' value='$rowid' class='my-del-btn'>JSDELETE</button>";
     echo "</div>";
 }
 echo "</div>";

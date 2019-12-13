@@ -1,4 +1,7 @@
 <?php
+session_start();
+//TODO check if user is allowed to delete!!
+
 require_once '../src/db.php';
 
 if ($_SERVER['REQUEST_METHOD'] == 'POST') {
