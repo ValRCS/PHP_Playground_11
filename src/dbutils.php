@@ -35,9 +35,16 @@ function checkLogin($conn, $username, $password)
         // print_r($hash);
 
         if (password_verify($password, $hash)) {
-            header('Location: /');
+
             $_SESSION['username'] = $username;
             $_SESSION['id'] = (int) $allRows[0]['id'];
+            setcookie("AlwaysCookie", $_SESSION['myname'], time() + 3600);
+            if (isset($_POST['remember'])) {
+                echo "Saving Loggin";
+                //TODO think about safety!
+                setcookie("TestCookie", $_SESSION['myname'], time() + 3600);
+            }
+            header('Location: /');
         } else {
             header('Location: /?error=badlogin');
         }

@@ -1,5 +1,11 @@
 <?php
 //we need to start sesssion to check if user already exists
+if (isset($_COOKIE['AlwaysCookie'])) {
+    echo "Welcome back " . $_COOKIE['AlwaysCookie'];
+} else {
+    echo "didn't find the cookie";
+}
+
 if (isset($_SESSION['username'])) {
 
     echo "You are logged in" . $_SESSION['username'];
@@ -16,6 +22,7 @@ if (isset($_SESSION['username'])) {
     echo "<form class='login-f' action='processLogin.php' method='post'>";
     echo "<input name='username'placeholder='Enter username' required>";
     echo "<input name='password' type='password' placeholder='Enter password' required>";
+    echo "<input name='remember' type='checkbox'>Remember me";
     echo "<button>Login</button>";
     echo "</form>";
     //alternative would have $_SESSION['myerrors'] if did not want $_GET
